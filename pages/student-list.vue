@@ -4,6 +4,14 @@
       <select v-model="room">
         <option v-for="r in roomList" :key="r" :value="r">ห้อง {{ r }}</option>
       </select>
+      <v-radio-group v-model="room">
+        <v-radio
+          v-for="n in roomList"
+          :key="n"
+          :label="`ห้อง ${n}`"
+          :value="n"
+        />
+      </v-radio-group>
     </div>
     <table>
       <tr>
@@ -22,24 +30,14 @@
 <script>
 export default {
   data() {
-    let students = []
-    for (let i = 1; i <= 100; i++) {
-      students.push({
-        code: ('' + i).padStart(4, '0'),
-        name: `Name${i}`,
-        room: '' + Math.ceil(i / 30),
-      })
-    }
     return {
-      
       room: '3',
     }
-  },
+  }, // data
   computed: {
-      students(){
-          return this.$store.state.students
-
-      }
+    students() {
+      return this.$store.state.students
+    },
     roomList() {
       // let out = []
       // for (let i = 0; i < this.students.length; i++) {
@@ -76,6 +74,21 @@ export default {
       // return out
       return this.students.filter(st => st.room === this.room)
     },
-  },
+  }, // computed
+
+  created() {
+    let students = []
+    for (let i = 1; i <= 100; i++) {
+      students.push({
+        code: ('' + i).padStart(4, '0'),
+        name: `Name${i}`,
+        room: '' + Math.ceil(i / 30),
+      })
+    }
+    // this.$store.state.students = students
+    setInterval(() => {
+      this.$store.commit('setStudents', students)
+    }, 5000)
+  }, // created
 }
 </script>
