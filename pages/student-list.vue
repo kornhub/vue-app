@@ -76,19 +76,5 @@ export default {
     },
   }, // computed
 
-  created() {
-    let students = []
-    for (let i = 1; i <= 100; i++) {
-      students.push({
-        code: ('' + i).padStart(4, '0'),
-        name: `Name${i}`,
-        room: '' + Math.ceil(i / 30),
-      })
-    }
-    // this.$store.state.students = students
-    setInterval(() => {
-      this.$store.commit('setStudents', students)
-    }, 5000)
-  }, // created
 }
 </script>
