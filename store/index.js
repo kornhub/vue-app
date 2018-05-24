@@ -1,6 +1,7 @@
 export const state = () => ({
   online: false,
   drawer: false,
+  students: [],
 })
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   setDrawer(state, status) {
     state.drawer = status
+  },
+  setstudents(state, data) {
+    state.setstudents = data
   },
 }
 
