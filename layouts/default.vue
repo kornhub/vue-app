@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer v-model="drawer" app right/>
     <v-toolbar app>
-      <v-toolbar-title>VueApp</v-toolbar-title>
+      <v-toolbar-title>VueApp pk</v-toolbar-title>
       <v-spacer/>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
     </v-toolbar>
@@ -32,6 +32,10 @@ export default {
       },
     },
   },
+ created() {
+    this.$store.dispatch('loadStudents')
+  }, // created
+   // created
 
   mounted() {
     this.$store.commit('setOnline', window.navigator.onLine)

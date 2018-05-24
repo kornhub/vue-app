@@ -11,8 +11,8 @@ export const mutations = {
   setDrawer(state, status) {
     state.drawer = status
   },
-  setstudents(state, data) {
-    state.setstudents = data
+  setStudents(state, data) {
+    state.students = data
   },
 }
 
